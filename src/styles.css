@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+ li {
+   padding: 7px;
+ }
+
+code {
+  background-color: #E0E0E0; color: #1E88E5; font-weight: bold;
+}
