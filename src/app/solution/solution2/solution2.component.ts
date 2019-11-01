@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Country} from './types';
+import {Country, State} from './types';
 import {CountryService} from './country.service';
 
 @Component({
@@ -11,7 +11,11 @@ import {CountryService} from './country.service';
 export class Solution2Component {
 
   countries$: Observable<Country[]> = this.service.getCountries();
+  states$: Observable<State[]>;
 
   constructor(private service: CountryService) { }
 
+  updateStates(countryId: string) {
+    this.states$ = this.service.getStatesFor(countryId);
+  }
 }

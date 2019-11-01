@@ -2,18 +2,18 @@
 <h2>Result</h2>
 <div *ngIf="countries$ | async as countries">
   <div>Select one of {{countries.length}} countries:</div>
-  <select #countryDropdown>
+  <select #countryDropdown (change)="updateStates(countryDropdown.value)">
     <option *ngFor="let country of countries" [value]="country.id">
       {{country.description}}
     </option>
   </select>
   <div>Current value: {{countryDropdown.value}}</div>
 </div>
-<div>
-  <div>Select one of 0 states/provinces:</div>
-  <select #statesDropdown>
-    <option>
-      State or province
+<div *ngIf="states$ | async as states">
+  <div>Select one of {{states.length}} states/provinces:</div>
+  <select #statesDropdown [disabled]="states.length == 0">
+    <option *ngFor="let state of states" [value]="state.code">
+      {{state.description | titlecase}}
     </option>
   </select>
   <div>Current value: {{statesDropdown.value}}</div>
