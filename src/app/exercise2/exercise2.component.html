@@ -1,0 +1,29 @@
+<h2>Exercise 2</h2>
+<h3>Your mission is to connect the two following dropdowns so that the state/province dropdown gets populated with data from the selected country.</h3>
+<ol>
+  <li>Make sure that the state dropdown is disabled when no country is selected as well as when the selected country has no state information</li>
+  <li>Update the code in <code>app/exercise2</code> so that our component loads its list of states from <code>http://localhost:3000/states?countryCode=US</code> and use the right country code as a parameter</li>
+  <li>Display the total number of states (for the selected country) in the corresponding <code>div</code></li>
+  <li>Selecting a state should result in the <code>code</code> of the state being set as the dropdown value</li>
+</ol>
+<h4>You can take a look at the expected result here: <a routerLink="/solution/2">http://localhost:4200/solution/2</a> </h4>
+<hr>
+<h2>Result</h2>
+<div *ngIf="countries$ | async as countries">
+  <div>Select one of {{countries.length}} countries:</div>
+  <select #countryDropdown>
+    <option *ngFor="let country of countries" [value]="country.id">
+      {{country.description}}
+    </option>
+  </select>
+  <div>Current value: {{countryDropdown.value}}</div>
+</div>
+<div>
+  <div>Select one of 0 states/provinces:</div>
+  <select #statesDropdown>
+    <option>
+      State or province
+    </option>
+  </select>
+  <div>Current value: {{statesDropdown.value}}</div>
+</div>
