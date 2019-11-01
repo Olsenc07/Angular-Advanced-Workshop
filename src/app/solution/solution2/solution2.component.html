@@ -1,1 +1,20 @@
-<p>solution2 works!</p>
+<h2>Solution 2</h2>
+<h2>Result</h2>
+<div *ngIf="countries$ | async as countries">
+  <div>Select one of {{countries.length}} countries:</div>
+  <select #countryDropdown>
+    <option *ngFor="let country of countries" [value]="country.id">
+      {{country.description}}
+    </option>
+  </select>
+  <div>Current value: {{countryDropdown.value}}</div>
+</div>
+<div>
+  <div>Select one of 0 states/provinces:</div>
+  <select #statesDropdown>
+    <option>
+      State or province
+    </option>
+  </select>
+  <div>Current value: {{statesDropdown.value}}</div>
+</div>

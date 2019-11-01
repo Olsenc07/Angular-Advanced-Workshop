@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Country} from '../solution/solution1/types';
-import {CountryService} from '../solution/solution1/country.service';
+import {Country} from './types';
+import {CountryService} from './country.service';
 
 @Component({
   selector: 'app-exercise2',
