@@ -1,14 +1,23 @@
 <h2>Exercise 1</h2>
-<p>Your mission is to turn the following dropdown into a country-selection dropdown. </p>
+<h3>Your mission is to turn the following dropdown into a country-selection dropdown. </h3>
 <ol>
   <li>Open a terminal in your project <code>ng-advanced-workshop</code></li>
   <li>Run <code>npm i -g json-server</code> in that terminal to download the server that's going to run our sample back-end</li>
   <li>Run <code>json-server --watch json/db.json</code> to start our sample back-end</li>
   <li>Update the code in <code>app/exercise1</code> so that our component loads its list of countries from <code>http://localhost:3000/countries</code></li>
+  <li>Display the total number of countries in the dropdown should be displayed in the corresponding <code>div</code></li>
+  <li>Selecting a country should result in the <code>id</code> of the country being set as the dropdown value</li>
 </ol>
+<h4>You can take a look at the expected result here: <a routerLink="/solution/1">http://localhost:4200/solution/1</a> </h4>
 <hr>
 <h2>Result</h2>
 <!-- Edit the code down below to implement the requested features -->
-<select>
-  <option>United States of America</option>
-</select>
+<div>
+  <div>Select one of 0 countries:</div>
+  <select #countryDropdown>
+    <option>
+      United States (hardcoded)
+    </option>
+  </select>
+  <div>Current value: {{countryDropdown.value}}</div>
+</div>
