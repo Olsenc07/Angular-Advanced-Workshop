@@ -5,6 +5,7 @@ import {Solution1Component} from './solution/solution1/solution1.component';
 import {Exercise2Component} from './exercise2/exercise2.component';
 import {Solution2Component} from './solution/solution2/solution2.component';
 import {Exercise3Component} from './exercise3/exercise3.component';
+import {Solution3Component} from './solution/solution3/solution3.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     children : [
       {path: '1', component: Solution1Component},
       {path: '2', component: Solution2Component},
+      {path: '3', component: Solution3Component},
     ]
   }
 ];

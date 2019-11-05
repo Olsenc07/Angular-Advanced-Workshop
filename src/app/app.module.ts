@@ -9,16 +9,20 @@ import {Solution1Component} from './solution/solution1/solution1.component';
 import { Exercise2Component } from './exercise2/exercise2.component';
 import { Solution2Component } from './solution/solution2/solution2.component';
 import { Exercise3Component } from './exercise3/exercise3.component';
+import { Solution3Component } from './solution/solution3/solution3.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { HighlightPipe } from './solution/solution3/highlight.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Exercise1Component, Solution1Component, Exercise2Component, Solution2Component, Exercise3Component
+    Exercise1Component, Solution1Component, Exercise2Component, Solution2Component, Exercise3Component, Solution3Component, HighlightPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
