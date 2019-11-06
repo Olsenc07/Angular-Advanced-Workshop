@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {Observable} from 'rxjs';
+import {combineLatest, Observable, of, Subject} from 'rxjs';
 import {Country, State} from './types';
 import {CountryService} from './country.service';
 import {FormControl} from '@angular/forms';
-import {map, withLatestFrom} from 'rxjs/operators';
+import {map, switchMap, tap, withLatestFrom} from 'rxjs/operators';
 
 @Component({
   selector: 'app-solution3',
@@ -13,19 +13,29 @@ import {map, withLatestFrom} from 'rxjs/operators';
 export class Solution4Component {
 
   countries$: Observable<Country[]>;
+  currentCountry$ = new Subject<Country>();
   states$: Observable<State[]>;
+  statesForCountry$: Observable<State[]> =  of([]);
   state: State;
   countryControl = new FormControl('');
+  stateControl = new FormControl('');
 
   constructor(private service: CountryService) {
-    this.countries$ = this.countryControl.valueChanges.pipe(
-      withLatestFrom(this.service.getCountries()),
+    this.countries$ = combineLatest(this.countryControl.valueChanges, this.service.getCountries()).pipe(
       map(([userInput, countries]) => countries.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
+    );
+    this.statesForCountry$ = this.currentCountry$.asObservable().pipe(
+      tap(console.log),
+      switchMap(cntry => this.service.getStatesFor(cntry.id))
+    );
+    this.states$ = combineLatest(this.stateControl.valueChanges, this.statesForCountry$).pipe(
+      map(([userInput, states]) => states.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
     );
   }
 
   updateStates(country: Country) {
     this.countryControl.setValue(country.description);
-    this.states$ = this.service.getStatesFor(country.id);
+    this.stateControl.setValue('');
+    this.currentCountry$.next(country);
   }
 }

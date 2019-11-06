@@ -11,11 +11,14 @@
     </div>
   </div>
 </div>
-<div *ngIf="states$ | async as states">
+<div >
   <div class="dropdown">
-    <input type="text" class="dropbtn" [value]="state?.description" [disabled]="states.length == 0" placeholder="Enter your state">
-    <div class="dropdown-content">
-      <span *ngFor="let s of states" (click)="state = s">{{s.description | titlecase}}</span>
+    <input type="text" class="dropbtn" [formControl]="stateControl"
+           placeholder="Enter your state">
+    <div class="dropdown-content" *ngIf="states$ | async as states">
+      <span *ngFor="let s of states" (click)="stateControl.setValue(s.description)"
+            [innerHTML]="s.description | titlecase | highlight: stateControl.value">
+      </span>
     </div>
   </div>
 </div>
