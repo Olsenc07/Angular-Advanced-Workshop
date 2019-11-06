@@ -1,19 +1,22 @@
-<h2>Exercise 3</h2>
-<h3>Your mission is to update our dropdowns so the user can type a value to filter out the dropdown contents</h3>
+<h2>Exercise 4</h2>
+<h3>Your mission is to find a way to refactor the behavior implemented in exercise 3 in order to use that same functionality on the state dropdown</h3>
 <ol>
   <li>If the user types 'Ca' then only the countries that have 'ca' in their name should show up in the list</li>
   <li>The filter should not be case-sensitive</li>
   <li>The matching portion of the country name should be rendered in <b>bold text</b>, for instance: <b>Ca</b>nada</li>
   <li>Do not worry about applying the same behavior to the state dropdown for now. Just make sure that the state dropdown still works after your changes.</li>
 </ol>
-<h4>You can take a look at the expected result here: <a routerLink="/solution/3">http://localhost:4200/solution/3</a> </h4>
+<h4>You can take a look at the expected result here: <a routerLink="/solution/4">http://localhost:4200/solution/4</a> </h4>
 <hr>
 <h2>Result</h2>
-<div *ngIf="countries$ | async as countries">
+<div >
   <div class="dropdown">
-    <input type="text" class="dropbtn" [value]="country?.description" placeholder="Enter country name">
-    <div class="dropdown-content">
-      <span *ngFor="let country of countries" (click)="updateStates(country)">{{country.description}}</span>
+    <input type="text" class="dropbtn" [formControl]="countryControl"
+           placeholder="Enter country name" >
+    <div class="dropdown-content" *ngIf="countries$ | async as countries">
+      <span *ngFor="let country of countries" (click)="updateStates(country)"
+            [innerHTML]="country.description | highlight: countryControl.value">
+      </span>
     </div>
   </div>
 </div>
