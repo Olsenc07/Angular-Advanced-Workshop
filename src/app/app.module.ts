@@ -17,12 +17,13 @@ import {Solution4Component} from './solution/solution4/solution4.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { Exercise5Component } from './exercise5/exercise5.component';
 import { Solution5Component } from './solution/solution5/solution5.component';
+import { AutofilterDropdownComponent } from './solution/solution5/autofilter-dropdown/autofilter-dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Exercise1Component, Solution1Component, Exercise2Component, Solution2Component, Exercise3Component, Solution3Component, HighlightPipe,
-    Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component
+    Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component, AutofilterDropdownComponent
   ],
   imports: [
     BrowserModule,
