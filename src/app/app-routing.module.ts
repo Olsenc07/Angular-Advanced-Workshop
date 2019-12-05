@@ -12,6 +12,7 @@ import {MainPageComponent} from './main-page/main-page.component';
 import {Exercise5Component} from './exercise5/exercise5.component';
 import {Solution5Component} from './solution/solution5/solution5.component';
 import {Solution6Component} from './solution/solution6/solution6.component';
+import {Exercise6Component} from './exercise6/exercise6.component';
 
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'exercise3', component: Exercise3Component},
   {path: 'exercise4', component: Exercise4Component},
   {path: 'exercise5', component: Exercise5Component},
+  {path: 'exercise6', component: Exercise6Component},
   { path: 'solution',
     children : [
       {path: '1', component: Solution1Component},

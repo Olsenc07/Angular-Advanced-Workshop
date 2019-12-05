@@ -20,12 +20,13 @@ import { Solution5Component } from './solution/solution5/solution5.component';
 import { AutofilterDropdownComponent } from './solution/solution5/autofilter-dropdown/autofilter-dropdown.component';
 import { Solution6Component } from './solution/solution6/solution6.component';
 import { StateButtonDirective } from './solution/solution6/state-button.directive';
+import { Exercise6Component } from './exercise6/exercise6.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Exercise1Component, Solution1Component, Exercise2Component, Solution2Component, Exercise3Component, Solution3Component, HighlightPipe,
-    Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component, AutofilterDropdownComponent, Solution6Component, StateButtonDirective
+    Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component, AutofilterDropdownComponent, Solution6Component, StateButtonDirective, Exercise6Component
   ],
   imports: [
     BrowserModule,
