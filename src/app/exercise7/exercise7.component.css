@@ -6,15 +6,3 @@ button {
   padding: 6px 21px;
   border: none;
 }
-
-button[working] {
-  background-color: gold;
-}
-
-button[done] {
-  background-color: green;
-}
-
-button img {
-  width: 20px;
-}
