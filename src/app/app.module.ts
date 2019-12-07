@@ -21,12 +21,13 @@ import { AutofilterDropdownComponent } from './solution/solution5/autofilter-dro
 import { Solution6Component } from './solution/solution6/solution6.component';
 import { StateButtonDirective } from './solution/solution6/state-button.directive';
 import { Exercise6Component } from './exercise6/exercise6.component';
+import { Solution7Component } from './solution/solution7/solution7.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Exercise1Component, Solution1Component, Exercise2Component, Solution2Component, Exercise3Component, Solution3Component, HighlightPipe,
-    Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component, AutofilterDropdownComponent, Solution6Component, StateButtonDirective, Exercise6Component
+    Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component, AutofilterDropdownComponent, Solution6Component, StateButtonDirective, Exercise6Component, Solution7Component
   ],
   imports: [
     BrowserModule,
