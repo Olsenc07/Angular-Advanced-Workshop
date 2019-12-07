@@ -1,0 +1,3 @@
+<ng-content select="[default]" *ngIf="state == 'initial' "></ng-content>
+<ng-content select="[working]" *ngIf="state == 'working'"></ng-content>
+<ng-content select="[done]" *ngIf="state == 'done'"></ng-content>

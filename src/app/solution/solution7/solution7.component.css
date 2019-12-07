@@ -1,0 +1,16 @@
+button {
+  background-color: #1976d2;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 21px;
+  border: none;
+}
+
+button[working] {
+  background-color: gold;
+}
+
+button[done] {
+  background-color: green;
+}

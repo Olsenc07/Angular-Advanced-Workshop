@@ -13,6 +13,7 @@ import {Exercise5Component} from './exercise5/exercise5.component';
 import {Solution5Component} from './solution/solution5/solution5.component';
 import {Solution6Component} from './solution/solution6/solution6.component';
 import {Exercise6Component} from './exercise6/exercise6.component';
+import {Solution7Component} from './solution/solution7/solution7.component';
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
       {path: '4', component: Solution4Component},
       {path: '5', component: Solution5Component},
       {path: '6', component: Solution6Component},
+      {path: '7', component: Solution7Component},
     ]
   }
 ];
