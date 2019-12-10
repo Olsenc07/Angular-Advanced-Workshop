@@ -25,7 +25,6 @@ export class Solution4Component {
       map(([userInput, countries]) => countries.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
     );
     this.statesForCountry$ = this.currentCountry$.asObservable().pipe(
-      tap(console.log),
       switchMap(cntry => this.service.getStatesFor(cntry.id))
     );
     this.states$ = combineLatest(this.stateControl.valueChanges, this.statesForCountry$).pipe(
