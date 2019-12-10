@@ -1290,79 +1290,79 @@
       "id": 98,
       "code": "NU",
       "countryCode": "CA",
-      "description": "NUNAVUT"
+      "description": "Nunavut"
     },
     {
       "id": 96,
       "code": "NS",
       "countryCode": "CA",
-      "description": "NOVA SCOTIA"
+      "description": "Nova Scotia"
     },
     {
       "id": 1,
       "code": "AB",
       "countryCode": "CA",
-      "description": "ALBERTA"
+      "description": "Alberta"
     },
     {
       "id": 104,
       "code": "ON",
       "countryCode": "CA",
-      "description": "ONTARIO"
+      "description": "Ontario"
     },
     {
       "id": 166,
       "code": "YT",
       "countryCode": "CA",
-      "description": "YUKON"
+      "description": "Yukon"
     },
     {
       "id": 134,
       "code": "SK",
       "countryCode": "CA",
-      "description": "SASKATCHEWAN"
+      "description": "Saskatchewan"
     },
     {
       "id": 72,
       "code": "MB",
       "countryCode": "CA",
-      "description": "MANITOBA"
+      "description": "Manitoba"
     },
     {
       "id": 86,
       "code": "NB",
       "countryCode": "CA",
-      "description": "NEW BRUNSWICK"
+      "description": "New Brunswick"
     },
     {
       "id": 120,
       "code": "QC",
       "countryCode": "CA",
-      "description": "QUEBEC"
+      "description": "Quebec"
     },
     {
       "id": 92,
       "code": "NL",
       "countryCode": "CA",
-      "description": "NEW FOUNDLAND AND LABRADO"
+      "description": "New Foundland and Labrador"
     },
     {
       "id": 97,
       "code": "NT",
       "countryCode": "CA",
-      "description": "NORTHWEST TERRITORIES"
+      "description": "Northwest Territories"
     },
     {
       "id": 109,
       "code": "PE",
       "countryCode": "CA",
-      "description": "PRINCE EDWARD ISLAND"
+      "description": "Prince Edward Island"
     },
     {
       "id": 14,
       "code": "BC",
       "countryCode": "CA",
-      "description": "BRITISH COLOMBIA"
+      "description": "British Colombia"
     }
   ]
 }
