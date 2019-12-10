@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class HighlightPipe implements PipeTransform {
 
-  transform(value: string, strToHighlight: string = ''): any {
+  transform(value: string, strToHighlight: string = ''): string {
     const index = value.toLowerCase().indexOf(strToHighlight.toLowerCase());
     if (index >= 0) {
       return value.substring(0, index) + '<b>'
