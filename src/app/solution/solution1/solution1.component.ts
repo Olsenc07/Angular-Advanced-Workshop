@@ -11,6 +11,7 @@ import {Country} from './types';
 export class Solution1Component {
 
   countries$: Observable<Country[]> = this.service.getCountries();
+  country: string;
 
   constructor(private service: CountryService) { }
 
