@@ -10,17 +10,50 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Concepts
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Here are the Angular concepts covered during this workshop:
+- #####Exercise 1 
+  + <code>async</code> pipe and the no-subscription pattern
+  + Template microsyntax variables for structural directives
+  + Template reference variables (hashtag syntax)
+  + <code>tap</code> operator from RxJs
+  
+- #####Exercise 2
+  + Reactive programming with Observable swapping
+  + <code>map</code> operator from RxJs
+  + <code>ng-container</code> as an empty DOM wrapper for content to show/hide
+  
+- #####Exercise 3
+  + <code>FormControl</code> and how to listen to form updates
+  + Creating a custom pipe to format data
+  + <code>withLatestFrom</code> operator from RxJs
+  + How to combine multiple Observable streams into one
+  + Using <code>innerHTML</code> to render dynamically generated HTML code
+  
+- #####Exercise 4 
+  + <code>switchMap</code> operator from RxJs
+  + <code>combineLatest</code> operator from RxJs
+  + Using RxJs <code>Subject</code> to create action streams
+  + How to combine dynamic Observable streams that evolve over time
+  
+- #####Exercise 5
+    + Refactoring HTML templates and TypeScript code into reusable components
+    + Creating custom 2-way bindings with the <code>[()]</code> syntax
+    + Using <code>Input</code> and <code>Output</code> for component communication
+    
+- #####Exercise 6
+    + Creating custom directives
+    + Using custom CSS selectors with a directive
+    + Using <code>HostBinding</code> and <code>HostListener</code>
+    
+- #####Exercise 7
+    + Multi-slot content projection
+    + Creating a highly reusable and customizable component
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+   
+        
 
 ## Further help
 
