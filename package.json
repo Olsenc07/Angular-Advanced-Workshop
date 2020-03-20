@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cleanup": "git clean -fd && git reset --hard"
+    "cleanup": "git clean -fd && git reset --hard",
+    "server": "json-server --watch json/db.json"
   },
   "private": true,
   "dependencies": {
