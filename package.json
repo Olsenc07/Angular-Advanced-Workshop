@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cleanup": "git clean -fd && git reset --hard",
-    "server": "json-server --watch json/db.json"
+    "server": "npx json-server --watch json/db.json"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +44,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "json-server": "^0.16.0"
   }
 }
