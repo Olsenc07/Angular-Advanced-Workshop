@@ -1,7 +1,5 @@
 # NgAdvancedWorkshop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -13,41 +11,41 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Concepts
 
 Here are the Angular concepts covered during this workshop:
-- #####Exercise 1 
+- #### Exercise 1 
   + <code>async</code> pipe and the no-subscription pattern
   + Template microsyntax variables for structural directives
   + Template reference variables (hashtag syntax)
   + <code>tap</code> operator from RxJs
   
-- #####Exercise 2
+- #### Exercise 2
   + Reactive programming with Observable swapping
   + <code>map</code> operator from RxJs
   + <code>ng-container</code> as an empty DOM wrapper for content to show/hide
   
-- #####Exercise 3
+- #### Exercise 3
   + <code>FormControl</code> and how to listen to form updates
   + Creating a custom pipe to format data
   + <code>withLatestFrom</code> operator from RxJs
   + How to combine multiple Observable streams into one
   + Using <code>innerHTML</code> to render dynamically generated HTML code
   
-- #####Exercise 4 
+- #### Exercise 4 
   + <code>switchMap</code> operator from RxJs
   + <code>combineLatest</code> operator from RxJs
   + Using RxJs <code>Subject</code> to create action streams
   + How to combine dynamic Observable streams that evolve over time
   
-- #####Exercise 5
+- #### Exercise 5
     + Refactoring HTML templates and TypeScript code into reusable components
     + Creating custom 2-way bindings with the <code>[()]</code> syntax
     + Using <code>Input</code> and <code>Output</code> for component communication
     
-- #####Exercise 6
+- #### Exercise 6
     + Creating custom directives
     + Using custom CSS selectors with a directive
     + Using <code>HostBinding</code> and <code>HostListener</code>
     
-- #####Exercise 7
+- #### Exercise 7
     + Multi-slot content projection
     + Creating a highly reusable and customizable component
 
