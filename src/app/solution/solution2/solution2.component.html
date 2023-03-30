@@ -12,7 +12,8 @@
 <div *ngIf="states$ | async as states">
   <ng-container *ngIf="states.length > 0">
     <div>Select one of {{states.length}} states/provinces:</div>
-    <select #statesDropdown [disabled]="states.length == 0">
+    <select [formControl]="statesDropdown" [disabled]="states.length == 0">
+      <option value="">Select...</option>
       <option *ngFor="let state of states" [value]="state.code">
         {{state.description | titlecase}}
       </option>
