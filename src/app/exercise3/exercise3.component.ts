@@ -11,9 +11,9 @@ import {CountryService} from './country.service';
 export class Exercise3Component {
 
   countries$: Observable<Country[]> = this.service.getCountries();
-  states$: Observable<State[]>;
-  country: Country;
-  state: State;
+  states$!: Observable<State[]>;
+  country!: Country;
+  state!: State;
 
   constructor(private service: CountryService) { }
 

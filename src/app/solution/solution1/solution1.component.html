@@ -2,10 +2,10 @@
 <h2>Result</h2>
 <div *ngIf="countries$ | async as countries">
   <div>Select one of {{countries.length}} countries:</div>
-  <select #countryDropdown (change)="country = countryDropdown.value">
+  <select [formControl]="countryDropdown">
     <option *ngFor="let country of countries" [value]="country.id">
       {{country.description}}
     </option>
   </select>
-  <div>Current value: {{country}}</div>
+  <div>Current value: {{countryDropdown.value}}</div>
 </div>

@@ -13,14 +13,15 @@ import {map, withLatestFrom} from 'rxjs/operators';
 export class Exercise4Component {
 
   countries$: Observable<Country[]>;
-  states$: Observable<State[]>;
-  state: State;
-  countryControl = new FormControl('');
+  states$!: Observable<State[]>;
+  state!: State;
+  countryControl = new FormControl<string>('');
 
   constructor(private service: CountryService) {
     this.countries$ = this.countryControl.valueChanges.pipe(
       withLatestFrom(this.service.getCountries()),
-      map(([userInput, countries]) => countries.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
+      map(([userInput, countries]) =>
+        countries.filter(c => c.description.toLowerCase().indexOf((userInput ?? "").toLowerCase()) !== -1))
     );
   }
 
