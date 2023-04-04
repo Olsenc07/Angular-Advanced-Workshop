@@ -2,7 +2,7 @@
 <h2>Result</h2>
 <div *ngIf="countries$ | async as countries">
   <div>Select one of {{countries.length}} countries:</div>
-  <select [formControl]="countryDropdown" (change)="updateStates(countryDropdown.value)">
+  <select [formControl]="countryDropdown">
     <option *ngFor="let country of countries" [value]="country.id">
       {{country.description}}
     </option>

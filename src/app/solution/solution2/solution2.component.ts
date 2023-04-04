@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, switchMap} from 'rxjs';
 import {Country, State} from './types';
 import {CountryService} from './country.service';
 import {FormControl} from '@angular/forms';
@@ -16,10 +16,9 @@ export class Solution2Component {
   countryDropdown = new FormControl<Country['id']>(null);
   statesDropdown = new FormControl<State['code']>(null);
 
-  constructor(private service: CountryService) { }
-
-  updateStates(countryId: string) {
-    this.statesDropdown.setValue("");
-    this.states$ = this.service.getStatesFor(countryId);
+  constructor(private service: CountryService) {
+    this.states$ = this.countryDropdown.valueChanges.pipe(
+      switchMap(countryId => service.getStatesFor(countryId))
+    )
   }
 }
