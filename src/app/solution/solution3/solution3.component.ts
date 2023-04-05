@@ -15,7 +15,7 @@ export class Solution3Component {
   countries$: Observable<Country[]>;
   states$: Observable<State[]>;
   state: State;
-  countryControl = new FormControl('');
+  countryControl = new FormControl<string>('');
 
   constructor(private service: CountryService) {
     this.countries$ = this.countryControl.valueChanges.pipe(
