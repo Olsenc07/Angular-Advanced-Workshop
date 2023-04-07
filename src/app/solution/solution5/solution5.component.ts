@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {Country, State} from './types';
 import {CountryService} from './country.service';
-import {map, switchMap, tap} from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-solution5',

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {combineLatest, Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {FormControl} from '@angular/forms';
 import {DropdownOption} from '../types';
 
@@ -30,10 +30,10 @@ export class AutofilterDropdownComponent<T extends DropdownOption> implements On
   selectionChange = new EventEmitter<T>();
 
   filteredEntries$: Observable<T[]>;
-  entryControl = new FormControl('');
+  entryControl = new FormControl<string>('');
 
   ngOnInit() {
-    this.filteredEntries$ = combineLatest(this.entryControl.valueChanges, this.entries$).pipe(
+    this.filteredEntries$ = combineLatest([this.entryControl.valueChanges, this.entries$]).pipe(
       map(([userInput, entries]) => entries.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
     );
   }

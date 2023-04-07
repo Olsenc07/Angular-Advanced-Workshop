@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {combineLatest, Observable, of, Subject} from 'rxjs';
 import {Country, State} from './types';
 import {FormControl} from '@angular/forms';
@@ -21,14 +21,14 @@ export class Exercise5Component {
   stateControl = new FormControl('');
 
   constructor(private service: CountryService) {
-    this.countries$ = combineLatest(this.countryControl.valueChanges, this.service.getCountries()).pipe(
+    this.countries$ = combineLatest([this.countryControl.valueChanges, this.service.getCountries()]).pipe(
       map(([userInput, countries]) => countries.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
     );
     this.statesForCountry$ = this.currentCountry$.asObservable().pipe(
       tap(console.log),
       switchMap(cntry => this.service.getStatesFor(cntry.id))
     );
-    this.states$ = combineLatest(this.stateControl.valueChanges, this.statesForCountry$).pipe(
+    this.states$ = combineLatest([this.stateControl.valueChanges, this.statesForCountry$]).pipe(
       map(([userInput, states]) => states.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
     );
   }
