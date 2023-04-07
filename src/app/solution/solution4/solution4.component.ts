@@ -3,7 +3,7 @@ import {combineLatest, Observable, of, Subject} from 'rxjs';
 import {Country, State} from './types';
 import {CountryService} from './country.service';
 import {FormControl} from '@angular/forms';
-Remoimport {map, switchMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-solution3',
