@@ -1,4 +1,4 @@
-import {Component, HostBinding, HostListener, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
 import {Observable} from 'rxjs';
 
 type State = 'initial' | 'working' | 'done';
