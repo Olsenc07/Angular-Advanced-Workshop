@@ -12,12 +12,16 @@
 <hr>
 <h2>Result</h2>
 <!-- Edit the code down below to implement the requested features -->
-<div>
-  <div>Select one of 0 countries:</div>
-  <select>
-    <option>
-      United States
-    </option>
-  </select>
-  <div>Current value: US</div>
-</div>
+<ng-container *ngIf="countryAmount > 0">
+  <div>Select one of  countries: {{countryAmount}} </div>
+  <mat-form-field>
+    <mat-label>Country Selection</mat-label>
+  <mat-select [formControl]="countryChoice">
+    <mat-option  *ngFor="let country of countries"
+     [value]="country.code">
+      {{country.name}}
+    </mat-option>
+  </mat-select>
+  </mat-form-field>
+  <div>Current value: {{countryChoice.value}} </div>
+</ng-container>
