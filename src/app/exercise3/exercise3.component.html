@@ -10,19 +10,25 @@
 <h4>You can take a look at the expected result here: <a routerLink="/solution/3">http://localhost:4200/solution/3</a> </h4>
 <hr>
 <h2>Result</h2>
+<!-- type country -->
 <div *ngIf="countries$ | async as countries">
   <div class="dropdown">
-    <input type="text" class="dropbtn" [value]="country?.description" placeholder="Enter country name">
+    <input type="text" class="dropbtn"
+    [formControl]="countryValue" [value]="country?.description" placeholder="Enter country name">
     <div class="dropdown-content">
-      <span *ngFor="let country of countries" (click)="updateStates(country)">{{country.description}}</span>
+      <span *ngFor="let country of countries" (click)="updateStates(country)"
+      [innerHTML]="country.description | bold:countryValue.value">
+        </span>
     </div>
   </div>
 </div>
+<!-- type state -->
 <div *ngIf="states$ | async as states">
   <div class="dropdown">
-    <input type="text" class="dropbtn" [value]="state?.description" [disabled]="states.length == 0" placeholder="Enter your state">
+    <input type="text" class="dropbtn"
+    [formControl]="stateValue" [value]="state?.description" [disabled]="states.length == 0" placeholder="Enter your state">
     <div class="dropdown-content">
-      <span *ngFor="let s of states" (click)="state = s">{{s.description | titlecase}}</span>
+      <span *ngFor="let s of states" (click)="state = s">{{s.description | titlecase | bold:stateValue.value}}</span>
     </div>
   </div>
 </div>

@@ -18,8 +18,8 @@
     <mat-label>Country Selection</mat-label>
   <mat-select [formControl]="countryChoice">
     <mat-option  *ngFor="let country of countries"
-     [value]="country.code">
-      {{country.name}}
+     [value]="country.id">
+      {{country.description}}
     </mat-option>
   </mat-select>
   </mat-form-field>

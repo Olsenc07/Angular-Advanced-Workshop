@@ -21,7 +21,7 @@ export class CountryService {
 
   // second test
   getCountryStates(countryCode: string): Observable<States[]> {
-     return this.http.get<States[]>(`/api/states?countryCode=${countryCode}`)
+     return this.http.get<States[]>(`http://localhost:3000/states?countryCode=${countryCode}`)
     .pipe(
       map (choices=> choices.sort((a, b) => (a.description > b.description) ? 1 : -1))
       );

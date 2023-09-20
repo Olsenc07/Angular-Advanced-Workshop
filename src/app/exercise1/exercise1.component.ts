@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CountrySelectionService } from './country-selection.service';
-import { type CountryList } from './country-list.interface';
+import { type Country } from './country-list.interface';
 import { Subscription } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./exercise1.component.css']
 })
 export class Exercise1Component implements OnInit, OnDestroy {
-countries: CountryList[] = [];
+countries: Country[] = [];
 countryChoice: FormControl<string | null> = new FormControl<string | null>(null);
 countryAmount: number;
 countrySub$: Subscription;
@@ -21,7 +21,7 @@ countrySub$: Subscription;
     this.countries = [];
     // request country list
   this.countrySub$ = this.countrySelectionService.getCountryList()
-   .subscribe((data: CountryList[]) => {
+   .subscribe((data: Country[]) => {
     this.countryAmount = data.length;
     this.countries = data;
    })

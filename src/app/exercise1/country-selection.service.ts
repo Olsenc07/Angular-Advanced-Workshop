@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CountryList } from './country-list.interface';
+import { Country } from './country-list.interface';
 import { Observable} from 'rxjs';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Observable} from 'rxjs';
 export class CountrySelectionService {
     constructor(private http: HttpClient) {}
     // first test
-    getCountryList(): Observable<CountryList[]> {
-       return this.http.get<CountryList[]>('/api/countries')
+    getCountryList(): Observable<Country[]> {
+       return this.http.get<Country[]>('http://localhost:3000/countries')
     }
  }

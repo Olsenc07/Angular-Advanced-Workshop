@@ -27,8 +27,8 @@
     <mat-label>State/Province Selection</mat-label>
   <mat-select [formControl]="statesDropdown" [disabled]="!countryDropdown.value || 
   (states.length == 0)">
-    <mat-option *ngFor="let state of states" [value]="state.countryCode">
-      {{state.description | uppercase}}
+    <mat-option *ngFor="let state of states" [value]="state.code">
+      {{state.description | titlecase}}
     </mat-option>
   </mat-select>
 </mat-form-field>
