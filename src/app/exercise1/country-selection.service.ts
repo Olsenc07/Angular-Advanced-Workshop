@@ -8,8 +8,8 @@ import { Observable} from 'rxjs';
   })
 export class CountrySelectionService {
     constructor(private http: HttpClient) {}
-// Observable<CountryList>
+    // first test
     getCountryList(): Observable<CountryList[]> {
        return this.http.get<CountryList[]>('/api/countries')
     }
-}
+ }

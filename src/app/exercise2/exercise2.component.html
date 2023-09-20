@@ -20,12 +20,18 @@
   </select>
   <div>Current value: {{countryDropdown.value}}</div>
 </div>
-<div>
-  <div>Select one of 0 states/provinces:</div>
-  <select #statesDropdown>
-    <option>
-      State or province
-    </option>
-  </select>
+<ng-container *ngIf="(states$ | async) as states">
+  <div *ngIf="states.length > 0">
+  <div>Select one of {{states.length}} states/provinces:</div>
+  <mat-form-field>
+    <mat-label>State/Province Selection</mat-label>
+  <mat-select [formControl]="statesDropdown" [disabled]="!countryDropdown.value || 
+  (states.length == 0)">
+    <mat-option *ngFor="let state of states" [value]="state.countryCode">
+      {{state.description | uppercase}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
   <div>Current value: {{statesDropdown.value}}</div>
 </div>
+</ng-container>

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Country} from './types';
+import {Country, States} from './types';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +18,12 @@ export class CountryService {
   getCountries(): Observable<Country[]> {
     return this.countries$;
   }
+
+  // second test
+  getCountryStates(countryCode: string): Observable<States[]> {
+     return this.http.get<States[]>(`/api/states?countryCode=${countryCode}`)
+    .pipe(
+      map (choices=> choices.sort((a, b) => (a.description > b.description) ? 1 : -1))
+      );
+}
 }
