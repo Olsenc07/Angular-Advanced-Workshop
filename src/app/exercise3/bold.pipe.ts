@@ -1,30 +1,24 @@
-// bold starting matching letters
 import { Pipe, PipeTransform } from '@angular/core';
-
 
 @Pipe({
   name: 'bold'
 })
 export class BoldPipe implements PipeTransform {
-  transform(list: string, input: string): string {
-    const listLower = list.toLowerCase();
-    const inputLower = input.toLowerCase();
-
+  transform(list: string, input: string): string  {
     if(input){
-     // Create a regular expression object
-     const matchOptions = new RegExp(inputLower, 'g');
-
-     // Use regex.exec to find the first match
-    const boldedValue = listLower.replace(
+    // case insensitive
+     // Create a regular expression object for pattern matching
+    //  g is global and i is case-insensitive
+    const matchOptions: RegExp = new RegExp(input, 'gi');
+    const boldedValueInList = (item: string) => 
+    // replace is self explanatory 
+    item.replace(
       matchOptions,
       (match: string) => `<b>${match}</b>`
     );
-    // Return the matched characters and only list that has matches
-    // maybe apply this search to formcontrol value on value change!
-    // only search list with those matches, could filter
-    console.log('only', boldedValue)
-    return boldedValue;
+    return  boldedValueInList(list);
     }
+    // no user input
     return list
   }
 }

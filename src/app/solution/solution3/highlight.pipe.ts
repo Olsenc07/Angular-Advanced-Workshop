@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'highlight'
 })
 export class HighlightPipe implements PipeTransform {
-
   transform(value: string = "", strToHighlight: string = ''): string {
     const index = value.toLowerCase().indexOf(strToHighlight.toLowerCase());
     if (index >= 0) {
@@ -15,5 +14,4 @@ export class HighlightPipe implements PipeTransform {
     }
     return value;
   }
-
 }
