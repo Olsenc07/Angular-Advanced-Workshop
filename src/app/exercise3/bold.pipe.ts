@@ -5,8 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BoldPipe implements PipeTransform {
   transform(list: string, input: string): string  {
-    if(input){
-    // case insensitive
      // Create a regular expression object for pattern matching
     //  g is global and i is case-insensitive
     const matchOptions: RegExp = new RegExp(input, 'gi');
@@ -16,9 +14,6 @@ export class BoldPipe implements PipeTransform {
       matchOptions,
       (match: string) => `<b>${match}</b>`
     );
-    return  boldedValueInList(list);
-    }
-    // no user input
-    return list
+    return boldedValueInList(list);
   }
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Observable, withLatestFrom, of, switchMap, map} from 'rxjs';
 import {Country, State} from './types';
 import {CountryService} from './country.service';
 import { FormControl } from '@angular/forms';
+
 
 
 @Component({
@@ -26,8 +27,8 @@ export class Exercise3Component  {
       // list is from the get api of this.service.getCountries()
       // felt I should add switchMap to prevent data leaks etc
       // But that may already be done with withLatestFrom so could be unneeded
-      switchMap(([userInput, countries]) =>
-        of(countries).pipe(
+      switchMap(([input, list]) =>
+        of(list).pipe(
            // toLowerCase allows for case insensitive search
           // If the substring is not found, it returns -1
           map((countryList: Country[]) =>
@@ -35,14 +36,13 @@ export class Exercise3Component  {
               (c: Country) =>
                 c.description
                   .toLowerCase()
-                  .indexOf(userInput.toLowerCase()) !== -1),
-                  console.log('first letter should be capital',this.countries$ )
+                  .indexOf(input.toLowerCase()) !== -1)
           ) 
         )
       )
     );
   }
-
+  
 
   updateStates(country: Country) {
     this.country = country;
