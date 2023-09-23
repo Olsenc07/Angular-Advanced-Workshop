@@ -17,7 +17,7 @@
     [formControl]="countryValue" placeholder="Enter country name">
     <div class="dropdown-content" *ngIf="countries$ | async as countries">
       <span *ngFor="let country of countries" (click)="updateStates(country)"
-      [innerHTML]="country.description | bold: countryValue.value ">
+      [innerHTML]="country.description | bold: countryValue.value">
         </span>
     </div>
   </div>

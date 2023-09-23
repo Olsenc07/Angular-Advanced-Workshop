@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Observable, withLatestFrom, of, switchMap, map} from 'rxjs';
+import {Observable, withLatestFrom, of, switchMap, map, debounceTime, distinctUntilChanged} from 'rxjs';
 import {Country, State} from './types';
 import {CountryService} from './country.service';
 import { FormControl } from '@angular/forms';
@@ -22,6 +22,7 @@ export class Exercise3Component  {
 
    constructor(private service: CountryService) {
     this.countries$ = this.countryValue.valueChanges.pipe(
+      debounceTime(500), distinctUntilChanged(),
       withLatestFrom(this.service.getCountries()), // Combine with latest list of countries
        // input is form control value of 'countryValue'
       // list is from the get api of this.service.getCountries()
