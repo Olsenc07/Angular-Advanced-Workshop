@@ -1,0 +1,9 @@
+<div class="dropdown">
+ <input type="text" class="dropbtn" [formControl]="input"
+ [placeholder]="placeholder">
+    <div class="dropdown-content" *ngIf="inputs$ | async as lists">
+      <span *ngFor="let list of lists" (click)="updateChoice(list)"
+            [innerHTML]="list.description | highlight: input.value">
+      </span>
+    </div>
+</div>
