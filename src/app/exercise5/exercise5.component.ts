@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, Subject, switchMap} from 'rxjs';
-import {Country, State} from './types';
+import {Country, State, CombinedOption} from './types';
 
 import {CountryService} from './country.service';
 
@@ -10,13 +10,13 @@ import {CountryService} from './country.service';
   styleUrls: ['./exercise5.component.css']
 })
 export class Exercise5Component {
+  country: Country;
   countries$: Observable<Country[]>;
   private countrySubject$ = new Subject<Country>();
 
   statesForCountry$: Observable<State[]>;
   states: State;
 
-  data: any;
 
   constructor(private service: CountryService) {
   this.countries$ = this.service.getCountries()
@@ -25,10 +25,8 @@ export class Exercise5Component {
    )
   }
 
-  
-
-  selected(selectionObject: any): void {
-    this.data = selectionObject;
+  newSelected(selectionObject: Country): void {
+    this.country = selectionObject;
     this.states = null;
     this.countrySubject$.next(selectionObject)
   }

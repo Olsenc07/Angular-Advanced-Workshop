@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {combineLatest, Observable, of, Subject} from 'rxjs';
-import type {Country, State} from '../types';
+import type {CombinedOption} from '../types';
 import {FormControl} from '@angular/forms';
 import {CountryService} from '../country.service';
 import {debounceTime, distinctUntilChanged, map, switchMap, tap} from 'rxjs/operators';
@@ -11,49 +11,47 @@ import {debounceTime, distinctUntilChanged, map, switchMap, tap} from 'rxjs/oper
   templateUrl: './reusable-filter-dropdown.component.html',
   styleUrls: ['./reusable-filter-dropdown.component.css']
 })
-export class ReusableFilterDropdownComponent {
-  input = new FormControl('');
-  inputs$: Observable<Country[] | State[]>;
+// generics in ts
+// Generic Type Parameter <T extends CombinedOption>:
+// This is a generic type parameter declaration. 
+// It allows you to create functions or components that can work with different types of objects as long as those types extend or match the structure defined in the CombinedOption interface.
+// For example, you can use this generic type parameter to create a function that operates 
+// on objects with a description property, whether those objects are of type Country, State, or any other type that matches the structure defined in CombinedOption. Here's an example of how you might use it:
+export class ReusableFilterDropdownComponent<T extends CombinedOption> implements OnInit{
+  input = new FormControl<string>('');
+  inputs$: Observable<T[]>;
 
-  state: State;
   // From parent
-  @Input() List$!: Observable<Country[] | State[]>;
-  // filter these states when typing to filter state list
-  @Input() select: State[]
+  @Input() List$: Observable<T[]>;
+  // connected from [(selected)]="states" 
+  @Input() set selected(value: T){
+  if (value) {
+    this.input.setValue(value.description);
+  } else {
+    this.input.setValue('');
+  }
+}
   @Input() placeholder: string;
   // Child to Parent
-  @Output() selected: EventEmitter<any> = new EventEmitter<any>()
+  @Output() selectedChange: EventEmitter<T> = new EventEmitter<T>();
 
 
-  constructor(private service: CountryService) {
-
-  // this.countries$ = combineLatest([this.countryControl.valueChanges, this.service.getCountries()]).pipe(
-  //   map(([userInput, countries]) => countries.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
-  // );
-  // this.statesForCountry$ = this.currentCountry$.asObservable().pipe(
-  //   tap(console.log),
-  //   switchMap(cntry => this.service.getStatesFor(cntry.id))
-  // );
-  // this.states$ = combineLatest([this.stateControl.valueChanges, this.statesForCountry$]).pipe(
-  //   map(([userInput, states]) => states.filter(c => c.description.toLowerCase().indexOf(userInput.toLowerCase()) !== -1))
-  // );
-  }
   ngOnInit() {
     // assign inputs$ from parent import
-    this.inputs$ = combineLatest([this.input.valueChanges.pipe(debounceTime(500), distinctUntilChanged(),
-      this.List$)]).pipe(
+    this.inputs$ = combineLatest([
+      this.input.valueChanges.pipe(debounceTime(500), distinctUntilChanged()),
+      this.List$]).pipe(
         map(([input, options]) =>
-        options.filter((option: Country | State) =>
+        options.filter((option: T) =>
           option.description.toLowerCase().indexOf(input.toLowerCase()) !== -1
         )
       )
        )
   }
 
-  updateChoice(country: Country) {
-    this.countryControl.setValue(country.description);
-    this.stateControl.setValue('');
-    this.currentCountry$.next(country);
+  update(list: T) {
+    this.input.setValue(list.description);
+    this.selectedChange.emit(list);
   }
 
 }

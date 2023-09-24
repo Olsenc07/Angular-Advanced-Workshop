@@ -10,15 +10,16 @@
 <h4>You can take a look at the expected result here: <a routerLink="/solution/5">http://localhost:4200/solution/5</a> </h4>
 <hr>
 <h2>Result</h2>
-<div >
+<div>
     <!-- pass needed data for country drop down to child -->
-    <app-reusable-filter-dropdown [List$]="countries$" (selectedEvent)="selected($event)" 
+    <app-reusable-filter-dropdown [List$]="countries$" (selectedChange)="newSelected($event)" 
     placeholder="Enter country name"></app-reusable-filter-dropdown>
 </div>
 <div >
     <!-- pass needed data for states drop down to child and retrieve country chosen -->
-    <app-reusable-filter-dropdown [List$]="statesForCountry$" [(select)]="states"
+    <app-reusable-filter-dropdown [List$]="statesForCountry$" [(selected)]="states"
     placeholder="Enter your state"></app-reusable-filter-dropdown>
 </div>
-<div>Country Selected: {{ data.Country | json }}</div>
-<div>State/Province Selected{{ data.State | json}}</div>
+<hr>
+<div>Country Selected: {{ country | json }}<br>
+State/Province Selected: {{ states | json}}</div>

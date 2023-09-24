@@ -1,0 +1,33 @@
+.dropbtn {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content span {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: white;
+  }
+  
+  .dropdown-content span:hover {background-color: #f1f1f1}
+  /* .dropbtn:focus + .dropdown-content: This part of the selector uses the + symbol to select the .dropdown-content element that immediately follows (is an adjacent sibling of) an element with the class .dropbtn when the .dropbtn element has focus. In other words, it targets the .dropdown-content element that is a sibling of the 
+  .dropbtn element when the .dropbtn element gains focus. */
+  /* so like a conditonal, when dropbtn has focus then .dropdown-content is triggered to add this style */
+  .dropdown:hover .dropdown-content, .dropbtn:focus + .dropdown-content{
+    display: block;
+  }

@@ -9,3 +9,7 @@ export interface State {
   countryCode: string;
   description: string;
 }
+
+export interface CombinedOption {
+  description: string;
+}
