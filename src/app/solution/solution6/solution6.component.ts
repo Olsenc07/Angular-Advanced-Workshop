@@ -7,8 +7,5 @@ import {timer} from 'rxjs';
   styleUrls: ['./solution6.component.css']
 })
 export class Solution6Component {
-
   action$ = timer(2000);
-
-
 }

@@ -11,6 +11,7 @@
 <h4>You can take a look at the expected result here: <a routerLink="/solution/6">http://localhost:4200/solution/6</a> </h4>
 <hr>
 <h2>Result</h2>
-<button>Save</button>
+<button mat-raised-button [toggle]="action$" [message] (selectedChange)="textChanged($event)" >{{textState}}</button>
 <br> <br>
-<a href="javascript:none()">Save from a link</a>
+<a href="javascript:none()" [toggle]="action$"  [message]="'Save from a link'"></a>
+

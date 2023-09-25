@@ -29,8 +29,9 @@ import { Exercise7Component } from './exercise7/exercise7.component';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BoldPipe } from './exercise3/bold.pipe';
-import { ReusableFilterDropdownComponent } from './exercise5/reusable-filter-dropdown/reusable-filter-dropdown.component'
-
+import { ReusableFilterDropdownComponent } from './exercise5/reusable-filter-dropdown/reusable-filter-dropdown.component';
+import { StateDirective } from './exercise6/state.directive';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ReusableFilterDropdownComponent } from './exercise5/reusable-filter-dro
     AppComponent,
     Exercise1Component, Solution1Component, Exercise2Component, Solution2Component, Exercise3Component, Solution3Component, HighlightPipe,
     Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component, AutofilterDropdownComponent,
-    Solution6Component, StateButtonDirective, Exercise6Component, Solution7Component, StateButtonComponent, Exercise7Component, BoldPipe, ReusableFilterDropdownComponent
+    Solution6Component, StateButtonDirective, Exercise6Component, Solution7Component, StateButtonComponent, Exercise7Component, BoldPipe, ReusableFilterDropdownComponent,
+    StateDirective
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { ReusableFilterDropdownComponent } from './exercise5/reusable-filter-dro
     CommonModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

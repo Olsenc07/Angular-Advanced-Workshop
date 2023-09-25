@@ -8,17 +8,13 @@ export class StateButtonDirective<T> {
 
   @Input()
   action: Observable<T>;
-
   @Input()
   textWhenWorking = 'Loading...';
-
   @Input()
   textWhenDone = 'Done!';
-
   @Input('defaultText')
   @HostBinding('textContent')
   buttonText = 'Save';
-
   @HostListener('click')
   triggerAction() {
     this.buttonText = this.textWhenWorking;
