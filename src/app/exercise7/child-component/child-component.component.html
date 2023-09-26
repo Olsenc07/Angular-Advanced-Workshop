@@ -1,0 +1,4 @@
+<ng-content select="[default]" *ngIf="messageState === 'Save'"></ng-content>
+<ng-content select="[loading]" *ngIf="messageState === 'Saving...'"></ng-content>
+<ng-content select="[saved]" *ngIf="messageState === 'Saved'"></ng-content>
+

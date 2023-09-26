@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {timer} from 'rxjs';
+import {Observable, timer} from 'rxjs';
 
 @Component({
   selector: 'app-exercise7',
@@ -7,7 +7,6 @@ import {timer} from 'rxjs';
   styleUrls: ['./exercise7.component.css']
 })
 export class Exercise7Component {
-
-  action$ = timer(2000);
+  action$: Observable<0> = timer(2000);
 
 }

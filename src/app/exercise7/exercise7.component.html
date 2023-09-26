@@ -11,6 +11,16 @@
 <h4>You can take a look at the expected result here: <a routerLink="/solution/7">http://localhost:4200/solution/7</a> </h4>
 <hr>
 <h2>Result</h2>
-<button>Save</button>
+<app-child-component [toggle]="action$" >
+  <button mat-raised-button default>Save</button>
+<button mat-fab-button loading><img src="assets/loader.gif"></button>
+<button mat-flat-button saved>Saved!</button>
+</app-child-component>
+
 <br> <br>
-<a href="javascript:">Save from a link</a>
+
+<app-child-component [toggle]="action$" >
+  <button mat-raised-button default><a href="javascript:">Save from a link</a></button>
+<button mat-fab-button loading><img src="assets/loader.gif"></button>
+<button mat-flat-button saved>Done!</button>
+</app-child-component>

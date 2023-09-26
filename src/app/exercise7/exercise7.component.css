@@ -1,8 +1,22 @@
-button {
-  background-color: #1976d2;
+a {
   color: white;
-  font-size: 16px;
+}
+button {
+  background-color: yellow;
+  color: white;
+  font-size: 27px;
   font-weight: bold;
-  padding: 6px 21px;
-  border: none;
+  border: groove;
+}
+
+button[loading] {
+  background-color: yellowgreen;
+}
+
+button[saved] {
+  background-color: green;
+}
+
+button img {
+  width: 70px;
 }

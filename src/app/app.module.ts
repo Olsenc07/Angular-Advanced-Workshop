@@ -32,6 +32,7 @@ import { BoldPipe } from './exercise3/bold.pipe';
 import { ReusableFilterDropdownComponent } from './exercise5/reusable-filter-dropdown/reusable-filter-dropdown.component';
 import { StateDirective } from './exercise6/state.directive';
 import { MatButtonModule } from '@angular/material/button';
+import { ChildComponentComponent } from './exercise7/child-component/child-component.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatButtonModule } from '@angular/material/button';
     Exercise1Component, Solution1Component, Exercise2Component, Solution2Component, Exercise3Component, Solution3Component, HighlightPipe,
     Exercise4Component, Solution4Component, MainPageComponent, Exercise5Component, Solution5Component, AutofilterDropdownComponent,
     Solution6Component, StateButtonDirective, Exercise6Component, Solution7Component, StateButtonComponent, Exercise7Component, BoldPipe, ReusableFilterDropdownComponent,
-    StateDirective
+    StateDirective,
+    ChildComponentComponent
   ],
   imports: [
     BrowserModule,
